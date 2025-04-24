@@ -1,0 +1,14 @@
+h1 {
+    color: #A0522D;           
+    text-align: center;         
+    font-weight: bold;         
+    font-family: 'Georgia', serif;
+  }
+  
+  
+  p {
+    color: #000000;             
+    text-align: justify;        
+    font-weight: normal;        
+    font-family: 'Arial', sans-serif; 
+  }
