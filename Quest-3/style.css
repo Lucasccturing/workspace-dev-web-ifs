@@ -1,24 +1,42 @@
-/* Remove os marcadores padrão das listas */
-ul.lista-planta {
-    list-style-type: none; /* Remove os marcadores padrão */
-    padding: 0; /* Remove o padding */
-  }
-  
-  ul.lista-planta li {
-    position: relative; /* Necessário para posicionar o emoji */
-    padding-left: 25px; /* Espaço à esquerda para o emoji */
-    transition: background-color 0.5s ease;
-  }
-  
-  /* Adiciona o emoji de planta antes de cada item da lista */
-  ul.lista-planta li::before {
-    content: "🌱"; /* O emoji de planta */
-    position: absolute; /* Posiciona o emoji */
-    left: 0; /* Alinha o emoji à esquerda */
-    top: 0; /* Alinha o emoji à parte superior do item */
-    font-size: 15px; /* Ajusta o tamanho do emoji */
-  }
-  
-  ul.lista-planta li:hover {
-    background-color: #90EE90;
-  }
+body {
+  font-family: Arial, sans-serif;
+  padding: 40px;
+  background-color: #f5fff5;
+}
+
+h1 {
+  color: #000000;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+ul.servicos {
+  list-style: none;
+  padding: 0;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+ul.servicos li {
+  position: relative;
+  padding: 12px 20px 12px 40px;
+  margin-bottom: 12px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+ul.servicos li::before {
+  content: "🌱";
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+}
+
+ul.servicos li:hover {
+  background-color: #90EE90;
+}
