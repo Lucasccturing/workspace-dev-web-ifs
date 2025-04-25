@@ -12,7 +12,7 @@
     <h1>ONG - Mão Amiga</h1>
     <h2>Formulário de cadastro</h2>
 
-    <form action="/IFS-Web/forms/" method="post" target="_blank">
+    <form id="formularioDownload" action="/IFS-Web/forms/" method="post" target="_blank">
 
         <div>
             <label for="nome">Nome:</label>
@@ -28,12 +28,39 @@
         </div>
         <div>
             <label for="message">Mensagem:</label>
-           <textarea name="message" placeholder="Comentários sobre o assunto"></textarea>
+           <textarea id="mensagem" placeholder="Comentários sobre o assunto"></textarea>
         </div>
         <div>
             <button type="submit">Enviar Mensagem</button>
         </div>
     </form>
+
+    <script>
+        document.getElementById("formularioDownload").addEventListener("submit", function(e) {
+            e.preventDefault(); // Impede o envio padrão do formulário
+
+            // Pega os valores
+            const nome = document.getElementById("nome").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const assunto = document.getElementById("assunto").value.trim();
+            const mensagem = document.getElementById("mensagem").value.trim();
+
+            // Monta o conteúdo do arquivo
+            const conteudo = `------------------Forms-------------------\n\nNome: ${nome}\nEmail: ${email}\n\nAssunto: ${assunto}\nMensagem: ${mensagem}\n`;
+
+            // Cria um blob e um link temporário para download
+            const blob = new Blob([conteudo], { type: "text/plain" });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "forms.txt";
+            a.click();
+
+            // Libera memória
+            URL.revokeObjectURL(url);
+        });
+    </script>
 </body>
 
 </html>
